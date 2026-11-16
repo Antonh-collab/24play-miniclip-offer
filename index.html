@@ -18,11 +18,12 @@ body{background:#070707;color:#F4F1EC;font:500 14px system-ui,-apple-system,sans
 <div class="bar"><button id="p" aria-label="Previous">&#8592;</button><div class="dots" id="d"></div><button id="n" aria-label="Next">&#8594;</button></div>
 <script>
 var S=[{img:"24play-miniclip-offer/formats.webp",alt:"Creative formats: Rapid Test, Performance, Cinematic",v:[["24play-miniclip-offer/rapid.mp4",6.979166666666667],["24play-miniclip-offer/performance.mp4",37.552083333333336],["24play-miniclip-offer/cinematic.mp4",68.125]]},
-{img:"24play-miniclip-offer/pricing.webp",alt:"Exclusive video creative team: Single team 8,000 EUR, Double team 15,000 EUR per month",v:[]}];
+{img:"24play-miniclip-offer/pricing.webp",alt:"Exclusive video creative team: Single team 8,000 EUR, Double team 15,000 EUR per month",v:[],c:[[114,426,189,24],[634,426,189,24]]}];
 var i=0,st=document.getElementById('stage'),vp=document.getElementById('vp'),d=document.getElementById('d');
 S.forEach(function(){d.appendChild(document.createElement('i'))});
 function fit(){var s=Math.min(vp.clientWidth/1920,vp.clientHeight/1080);st.style.transform='translate(-50%,-50%) scale('+s+')'}
 function r(){var x=S[i];st.innerHTML='';var im=new Image();im.src=x.img;im.alt=x.alt;st.appendChild(im);
+(x.c||[]).forEach(function(b){var q=document.createElement('div');q.style.cssText='position:absolute;background:#0D0D0C;left:'+b[0]+'px;top:'+b[1]+'px;width:'+b[2]+'px;height:'+b[3]+'px';st.appendChild(q)});
 x.v.forEach(function(a){var v=document.createElement('video');v.src=a[0];v.muted=true;v.loop=true;v.autoplay=true;v.playsInline=true;v.setAttribute('playsinline','');
 v.style.left=a[1]+'%';v.style.top='41.11111111111111%';v.style.width='9.166666666666668%';v.style.height='29.259259259259256%';st.appendChild(v);var p=v.play();if(p&&p.catch)p.catch(function(){})});
 [].forEach.call(d.children,function(e,k){e.className=k===i?'on':''})}
